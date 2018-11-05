@@ -1,13 +1,12 @@
 package vista;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JMenuBar;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 public class VentanaII extends JFrame {
     
@@ -23,8 +22,9 @@ public class VentanaII extends JFrame {
     }
     
     private void crear() {
-        tamañoFuente = TipoFuenteLetra.getComboTamaño();
-        tipoFuente = TipoFuenteLetra.getComboFuente();
+        tamañoFuente = OpcionesFuenteLetra.getComboTamaño();
+        tipoFuente = OpcionesFuenteLetra.getComboFuente();
+        tipoLínea = OpcionesFuenteLetra.getComboLínea();
         btnRectángulo = new JButton("Rectángulo");
         btnImagen = new JButton("Imagen");
         btnLínea = new JButton("Línea");
@@ -50,36 +50,37 @@ public class VentanaII extends JFrame {
         btnRectángulo.setBounds(25, 60, 100, 25);
         btnImagen.setBounds(25, 100, 100, 25);
         btnTexto.setBounds(25, 140, 100, 25);
+        
+        tipoFuente.setToolTipText("Fuente de letra");
         tipoFuente.setBounds(25, 180, 100,  25);
+        
+        tamañoFuente.setToolTipText("Tamaño de fuente");
         tamañoFuente.setBounds(25, 220, 100, 25);
         
+        tipoLínea.setToolTipText("Tipo de línea");
+        tipoLínea.setBounds(25, 260, 100, 25);
+        
         color.setBorder(BorderFactory.createEtchedBorder());
-        color.setBounds(25, 260, 100, 25);
-        color.setBackground(Color.WHITE);
+        color.setBounds(25, 300, 100, 25);
+        color.setBackground(Color.BLACK);
         
         lienzo.setBorder(BorderFactory.createEtchedBorder());
         lienzo.setBounds(150, 20, 420, 310);
         lienzo.setBackground(Color.WHITE);
+        lienzo.setLayout(null);
     }
     
     private void armar() {
         add(panel);
         
         panel.add(btnRectángulo);
+        panel.add(tamañoFuente);
         panel.add(tipoFuente);
+        panel.add(tipoLínea);
         panel.add(btnImagen);
         panel.add(btnLínea);
         panel.add(btnTexto);
         panel.add(lienzo);
         panel.add(color);
-        panel.add(tamañoFuente);
-    }
-    
-    void a() {
-        Graphics g = panel.getGraphics();
-    }
-    
-    public static void main(String[] args) {
-        new VentanaII().setVisible(true);
     }
 }
